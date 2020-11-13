@@ -17,24 +17,21 @@ public class MainFrame {
     private final JFrame frame=new JFrame("学生管理系统");
     private final JPanel panel=new JPanel();
     private final JMenuBar jMenuBar=new JMenuBar();
-    private final JMenu filemenu=new JMenu("文件");
+    private final JMenu filemenu=new JMenu("导出");
     private final JMenuItem saveasItem=new JMenuItem("另存为");
-    private final JMenu Operatemenu=new JMenu("数据库操作");
+    private final JMenu Operatemenu=new JMenu("操作");
     private final JMenuItem IncreaseItem=new JMenuItem("添加");
     private final JMenuItem DeleteItem=new JMenuItem("删除");
     private final JMenuItem UpdateItem=new JMenuItem("更改");
     private final JMenuItem InquireItem=new JMenuItem("查询");
-    private final JMenuItem StatementItem=new JMenuItem("按语句查询");
-    private final JMenuItem conditionItem=new JMenuItem("按条件查询");
+    //private final JMenuItem StatementItem=new JMenuItem("按语句查询");
+    //private final JMenuItem conditionItem=new JMenuItem("按条件查询");
     private final JMenu helpmenu=new JMenu("帮助");
-    private final JMenuItem chatItem=new JMenuItem("跟我聊天吧");
+    private final JMenuItem chatItem=new JMenuItem("反馈");
+    private final JMenuItem descriptionItem=new JMenuItem("说明");
     public MainFrame(){
-        setFilemenu();
-        setOperatemenu();
-        setHelpmenu();
         setjMenuBar();
         setFrame();
-        setChatItem();
     }
     private void setFrame(){
         frame.setSize(1366,800);
@@ -50,31 +47,39 @@ public class MainFrame {
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
-        setIncreaseItem();
-        setDeleteItem();
-        setUpdateItem();
-        setInquireItem();
+
         //setStatementItem();
-        setSaveasItem();
+
     }
     //设置主窗口中的文件菜单
     private void setFilemenu(){
+        setSaveasItem();
         filemenu.add(saveasItem);
     }
     //设置主窗口中的数据库操作菜单
     private void setOperatemenu(){
+        setIncreaseItem();
+        setDeleteItem();
+        setUpdateItem();
+        setInquireItem();
         Operatemenu.add(IncreaseItem);
         Operatemenu.add(DeleteItem);
         Operatemenu.add(UpdateItem);
         Operatemenu.add(InquireItem);
-        Operatemenu.add(StatementItem);
-        Operatemenu.add(conditionItem);
+        //Operatemenu.add(StatementItem);
+        //Operatemenu.add(conditionItem);
     }
     //设置主窗口中的帮助菜单
     private void setHelpmenu(){
+        setChatItem();
+        setDescriptionItem();
         helpmenu.add(chatItem);
+        helpmenu.add(descriptionItem);
     }
     private void setjMenuBar(){
+        setFilemenu();
+        setOperatemenu();
+        setHelpmenu();
         jMenuBar.add(filemenu);
         jMenuBar.add(Operatemenu);
         jMenuBar.add(helpmenu);
@@ -153,6 +158,14 @@ public class MainFrame {
                 //new SaveFile(new File("D:\\hk.txt"));
                 new Save();
                 //
+            }
+        });
+    }
+    private void setDescriptionItem(){
+        descriptionItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new SystemDescription();
             }
         });
     }

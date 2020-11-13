@@ -23,7 +23,7 @@ public class Save {
         frame.setLayout(new FlowLayout());
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
         setLabel();
         setTextField();
