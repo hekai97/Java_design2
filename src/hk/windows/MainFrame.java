@@ -45,7 +45,7 @@ public class MainFrame {
         new BackGroundImage(frame,con,"图片1.jpg");
         //禁止改变大小
         frame.setResizable(false);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
         //setStatementItem();

@@ -36,7 +36,7 @@ public class Login {
         //new BackGroundImage(frame,con,"1.jpg");
         frame.add(panel);
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     private void setTitle(){
         title.setBounds(150,50,200,50);

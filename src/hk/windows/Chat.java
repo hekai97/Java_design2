@@ -93,20 +93,20 @@ import java.net.*;
 import javax.swing.*;
 
 public class Chat {
-    private JFrame clientFrame;
-    private JLabel sayLabel;
-    private JLabel nicknameLabel;
-    private JTextField nicknameText;
-    private JTextField sayText;
-    private JButton connectButton;
-    private JButton nicknameButton;
-    private JButton sayButton;
-    private JPanel jPanelNorth;
-    private JPanel jPanelSouth0;
-    private JPanel jPanelSouth1;
-    private JPanel jPanelSouth2;
-    private JTextArea clientTextArea;
-    private JScrollPane scroller;
+    private final JFrame clientFrame;
+    private final JLabel sayLabel;
+    private final JLabel nicknameLabel;
+    private final JTextField nicknameText;
+    private final JTextField sayText;
+    private final JButton connectButton;
+    private final JButton nicknameButton;
+    private final JButton sayButton;
+    private final JPanel jPanelNorth;
+    private final JPanel jPanelSouth0;
+    private final JPanel jPanelSouth1;
+    private final JPanel jPanelSouth2;
+    private final JTextArea clientTextArea;
+    private final JScrollPane scroller;
     private BufferedReader reader;
     private PrintWriter writer;
     private String nickname;
@@ -137,7 +137,7 @@ public class Chat {
     private void buildGUI() {
         // 窗口的设置
         clientFrame.setTitle("客户端");
-        clientFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        clientFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         clientFrame.setSize(550, 550);
         clientFrame.setLocationRelativeTo(null);
 
@@ -253,7 +253,5 @@ public class Chat {
         };
         sayButton.addActionListener(SayListener);
         sayText.addActionListener(SayListener);
-
     }
-
 }

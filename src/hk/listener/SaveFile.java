@@ -14,7 +14,6 @@ public class SaveFile {
         List_student listStudent=new List_student();
         List<Student> students=listStudent.StudentRes();
         BufferedWriter bufferedWriter;
-        //BufferedReader bufferedReader;
         try{
             bufferedWriter=new BufferedWriter(new FileWriter(file));
             for(Student s:students)
