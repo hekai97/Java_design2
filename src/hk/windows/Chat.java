@@ -84,6 +84,7 @@ import java.net.Socket;
     }
 }*/
 
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -93,12 +94,8 @@ import javax.swing.*;
 
 public class Chat {
     private JFrame clientFrame;
-    private JLabel IPLabel;
-    private JLabel PortLabel;
     private JLabel sayLabel;
     private JLabel nicknameLabel;
-    private JTextField IPText;
-    private JTextField PortText;
     private JTextField nicknameText;
     private JTextField sayText;
     private JButton connectButton;
@@ -113,11 +110,8 @@ public class Chat {
     private BufferedReader reader;
     private PrintWriter writer;
     private String nickname;
-
-    public static void main(String[] args) {
-        Chat aClient = new Chat();
-        aClient.startUp();
-    }
+    private final String aServerIP = "127.0.0.1";
+    private final int aServerPort = 5000;
 
     // 初始化组件
     public Chat() {
@@ -125,10 +119,6 @@ public class Chat {
 
         clientFrame = new JFrame();
         jPanelNorth = new JPanel();
-        IPLabel = new JLabel("服务器IP", JLabel.LEFT);
-        IPText = new JTextField(10);
-        PortLabel = new JLabel("服务器端口", JLabel.LEFT);
-        PortText = new JTextField(10);
         connectButton = new JButton("连接");
         clientTextArea = new JTextArea();
         scroller = new JScrollPane(clientTextArea);
@@ -147,14 +137,11 @@ public class Chat {
     private void buildGUI() {
         // 窗口的设置
         clientFrame.setTitle("客户端");
-        clientFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        clientFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         clientFrame.setSize(550, 550);
+        clientFrame.setLocationRelativeTo(null);
 
         // 北区的组件
-        jPanelNorth.add(IPLabel);
-        jPanelNorth.add(IPText);
-        jPanelNorth.add(PortLabel);
-        jPanelNorth.add(PortText);
         jPanelNorth.add(connectButton);
         clientFrame.getContentPane().add(BorderLayout.NORTH, jPanelNorth);
 
@@ -203,26 +190,19 @@ public class Chat {
         connectButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String aServerIP = IPText.getText();
-                String aServerPort = PortText.getText();
+                try {
+                    @SuppressWarnings("resource")
+                    Socket clientSocket = new Socket(aServerIP, aServerPort);
+                    InputStreamReader streamReader = new InputStreamReader(clientSocket.getInputStream());
+                    reader = new BufferedReader(streamReader);
+                    writer = new PrintWriter(clientSocket.getOutputStream());
 
-                if (aServerIP.equals("") || aServerPort.equals("")) {
-                    JOptionPane.showMessageDialog(clientFrame, "请输入 完整的 IP和端口！");
-                } else {
-                    try {
-                        @SuppressWarnings("resource")
-                        Socket clientSocket = new Socket(aServerIP, Integer.parseInt(aServerPort));
-                        InputStreamReader streamReader = new InputStreamReader(clientSocket.getInputStream());
-                        reader = new BufferedReader(streamReader);
-                        writer = new PrintWriter(clientSocket.getOutputStream());
+                    clientTextArea.append("服务器已连接...\n");
 
-                        clientTextArea.append("服务器已连接...\n");
-
-                        Thread readerThread = new Thread(incomingReader);
-                        readerThread.start();
-                    } catch (Exception ex) {
-                        JOptionPane.showMessageDialog(clientFrame, "连接不上服务器!\n请确认 IP 和 端口 输入正确。");
-                    }
+                    Thread readerThread = new Thread(incomingReader);
+                    readerThread.start();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(clientFrame, "连接不上服务器!\n请确认 IP 和 端口 输入正确。");
                 }
             }
         });

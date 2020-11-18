@@ -66,8 +66,6 @@ public class MainFrame {
         Operatemenu.add(DeleteItem);
         Operatemenu.add(UpdateItem);
         Operatemenu.add(InquireItem);
-        //Operatemenu.add(StatementItem);
-        //Operatemenu.add(conditionItem);
     }
     //设置主窗口中的帮助菜单
     private void setHelpmenu(){
@@ -133,24 +131,12 @@ public class MainFrame {
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==chatItem)
                 {
-                    /*Chat_listener chat_listener=new Chat_listener();
-                    Thread thread=new Thread(chat_listener);
-                    thread.start();*/
-                    //itemListener.doChat();
                     Chat chat=new Chat();
                     chat.startUp();
                 }
             }
         });
     }
-    /*private void setStatementItem(){
-        StatementItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new StatementInqure();
-            }
-        });
-    }*/
     private void setSaveasItem(){
         saveasItem.addActionListener(new ActionListener() {
             @Override

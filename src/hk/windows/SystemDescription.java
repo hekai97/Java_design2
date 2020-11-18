@@ -1,8 +1,8 @@
 package hk.windows;
 
+import hk.background.BackGroundImage;
+
 import javax.swing.*;
-import javax.swing.text.Document;
-import javax.swing.text.PlainDocument;
 import java.awt.*;
 
 public class SystemDescription {
@@ -14,10 +14,11 @@ public class SystemDescription {
     private void setFrame(){
         frame=new JFrame("系统说明");
         frame.setLayout(new BorderLayout());
-        setTextArea();
+        //setTextArea();
+        //new BackGroundImage(frame,frame.getContentPane(),"6.jpg");
         frame.setSize(500,500);
         frame.setLocationRelativeTo(null);
-        frame.add(textArea,BorderLayout.CENTER);
+        //frame.add(textArea,BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
     }
