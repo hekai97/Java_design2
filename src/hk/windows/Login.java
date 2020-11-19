@@ -1,5 +1,7 @@
 package hk.windows;
-
+/**
+ * 该类实现了登录界面，为该程序第一个调用的界面
+ */
 import hk.listener.Login_BTListener;
 
 import javax.swing.*;
@@ -38,34 +40,45 @@ public class Login {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    //设置登录界面的主标题
     private void setTitle(){
         title.setBounds(150,50,200,50);
         title.setFont(new Font("",Font.BOLD,25));
         panel.add(title);
     }
+    //设置登录界面的用户文本，将字体调到20号字
     private void setUserT(){
         userT.setFont(new Font("",Font.BOLD,20));
         userT.setBounds(100,150,100,20);
         panel.add(userT);
     }
+    //设置登录界面的密码文本，将字体调到20号字
     private void setPasswordT(){
         passwordT.setFont(new Font("",Font.BOLD,20));
         passwordT.setBounds(100,190,100,20);
         panel.add(passwordT);
     }
+    //设置登录界面的用户账号框
     private void setUser(){
         user.setBounds(220,150,150,20);
         panel.add(user);
     }
+    //设置登录界面的用户密码框
     private void setPassword(){
         password.setBounds(220,190,150,20);
         panel.add(password);
     }
+    //设置登录按钮，用图片替换
     private void setButton(){
         button.setFont(new Font("",Font.BOLD,20));
         button.setBounds(230,250,90,30);
         button.setIcon(new ImageIcon("res/4.jpg"));
         panel.add(button);
+        /**
+         * 设置登录界面的登录按钮，并从文本框中接收到的用户名和密码
+         * 正确时便开启下一个主窗口，并且将该窗口关闭
+         * 反之，弹出对话框提示用户账户密码输入错误
+         * */
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

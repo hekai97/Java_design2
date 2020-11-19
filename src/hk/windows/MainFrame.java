@@ -4,7 +4,6 @@ package hk.windows;
  */
 
 import hk.background.BackGroundImage;
-import hk.listener.Chat_listener;
 import hk.listener.Item_Listener;
 
 import javax.swing.*;
@@ -15,7 +14,6 @@ import java.awt.event.ActionListener;
 public class MainFrame {
     Item_Listener itemListener=new Item_Listener();
     private final JFrame frame=new JFrame("学生管理系统");
-    private final JPanel panel=new JPanel();
     private final JMenuBar jMenuBar=new JMenuBar();
     private final JMenu filemenu=new JMenu("导出");
     private final JMenuItem saveasItem=new JMenuItem("另存为");
@@ -58,6 +56,7 @@ public class MainFrame {
     }
     //设置主窗口中的数据库操作菜单
     private void setOperatemenu(){
+        //先将各个menuItem进行设置，然后添加到menu中
         setIncreaseItem();
         setDeleteItem();
         setUpdateItem();
@@ -74,6 +73,7 @@ public class MainFrame {
         helpmenu.add(chatItem);
         helpmenu.add(descriptionItem);
     }
+    //该menuBar为主菜单，放置在主界面最上方，为一长条
     private void setjMenuBar(){
         setFilemenu();
         setOperatemenu();
