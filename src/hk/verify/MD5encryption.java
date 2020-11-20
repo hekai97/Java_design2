@@ -34,7 +34,7 @@ public class MD5encryption {
 
     public static void main(String[] args) {
         MD5encryption md5encryption=new MD5encryption();
-        String s="this is a test";
+        String s="123";
         System.out.println(s);
         String res=md5encryption.MD5encrypt(s);
         System.out.println(res);

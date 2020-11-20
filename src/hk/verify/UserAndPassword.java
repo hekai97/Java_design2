@@ -13,7 +13,7 @@ import java.util.Objects;
 
 public class UserAndPassword {
     List<UP> list = new ArrayList<>();
-    private void getUser(String User,String Password)
+    private void getresult()
     {
         String sql="select * from java.user_password";
         Connection con= DBCon.getConnection();
@@ -34,10 +34,10 @@ public class UserAndPassword {
     }
 
     public int verifyUser(String user,String password){
-        getUser(user,password);
+        getresult();
         MD5encryption md5encryption=new MD5encryption();
         for (UP temp : list) {
-            if (Objects.equals(md5encryption.MD5encrypt(user), temp.getUser())) {
+            if (Objects.equals(user, temp.getUser())) {
                 if (Objects.equals(md5encryption.MD5encrypt(password), temp.getPassword())) {
                     return 1;
                 } else {
