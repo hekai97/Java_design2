@@ -191,7 +191,6 @@ public class Chat {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    @SuppressWarnings("resource")
                     Socket clientSocket = new Socket(aServerIP, aServerPort);
                     InputStreamReader streamReader = new InputStreamReader(clientSocket.getInputStream());
                     reader = new BufferedReader(streamReader);
@@ -202,7 +201,7 @@ public class Chat {
                     Thread readerThread = new Thread(incomingReader);
                     readerThread.start();
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(clientFrame, "连接不上服务器!\n请确认 IP 和 端口 输入正确。");
+                    JOptionPane.showMessageDialog(clientFrame, "无法连接服务器!\n请确认服务端是否开启");
                 }
             }
         });

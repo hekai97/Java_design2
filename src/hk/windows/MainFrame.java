@@ -49,18 +49,72 @@ public class MainFrame {
         //setStatementItem();
 
     }
+
+    /**
+     * 定义一个ActionListener监听器的变量
+     * 根据是哪个子菜单发出的指令而对其进行不同的操作
+     * 将该监听器分别添加至menuItem中
+     * 该变量的定义，有效减少了冗余的代码
+     * 否则需要对每个menuItem进行监听器的加入
+     * 该变量也可以设置成一个实现了ActionListener接口的类
+     * 在添加监听器时也可以直接添加这个类
+     */
+    ActionListener actionListener=new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getSource()==IncreaseItem)
+            {
+                itemListener.doIncrease();
+            }
+            if(e.getSource()==DeleteItem)
+            {
+                itemListener.doDelete();
+            }
+            if(e.getSource()==UpdateItem)
+            {
+                itemListener.doUpdate();
+            }
+            if(e.getSource()==InquireItem)
+            {
+                itemListener.doInquire();
+            }
+            if(e.getSource()==chatItem)
+            {
+                Chat chat=new Chat();
+                chat.startUp();
+            }
+            if(e.getSource()==saveasItem)
+            {
+                new Save();
+            }
+            if(e.getSource()==descriptionItem)
+            {
+                new SystemDescription();
+            }
+        }
+    };
+
+
     //设置主窗口中的文件菜单
     private void setFilemenu(){
-        setSaveasItem();
+        //setSaveasItem();
+
+        saveasItem.addActionListener(actionListener);
+
         filemenu.add(saveasItem);
     }
     //设置主窗口中的数据库操作菜单
     private void setOperatemenu(){
         //先将各个menuItem进行设置，然后添加到menu中
-        setIncreaseItem();
+        /*setIncreaseItem();
         setDeleteItem();
         setUpdateItem();
-        setInquireItem();
+        setInquireItem();*/
+        IncreaseItem.addActionListener(actionListener);
+        DeleteItem.addActionListener(actionListener);
+        UpdateItem.addActionListener(actionListener);
+        InquireItem.addActionListener(actionListener);
+
         Operatemenu.add(IncreaseItem);
         Operatemenu.add(DeleteItem);
         Operatemenu.add(UpdateItem);
@@ -68,8 +122,11 @@ public class MainFrame {
     }
     //设置主窗口中的帮助菜单
     private void setHelpmenu(){
-        setChatItem();
-        setDescriptionItem();
+        /*setChatItem();
+        setDescriptionItem();*/
+        chatItem.addActionListener(actionListener);
+        descriptionItem.addActionListener(actionListener);
+
         helpmenu.add(chatItem);
         helpmenu.add(descriptionItem);
     }
@@ -82,8 +139,13 @@ public class MainFrame {
         jMenuBar.add(Operatemenu);
         jMenuBar.add(helpmenu);
     }
+
+    /**
+     * 以下代码是第一次所写
+     * 在定义了ActionListener变量后下述方法便显得冗余
+     */
     //以下都是对菜单中的子项进行设置并且添加监听器
-    private void setIncreaseItem(){
+    /*private void setIncreaseItem(){
         IncreaseItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -154,5 +216,5 @@ public class MainFrame {
                 new SystemDescription();
             }
         });
-    }
+    }*/
 }
