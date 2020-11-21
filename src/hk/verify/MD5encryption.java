@@ -3,7 +3,14 @@ package hk.verify;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
+/**
+ * 该类的作用是对传进来的字符串进行MD5加密操作
+ * MD5属于哈希算法的一种
+ * 为不可逆的加密运算
+ * 因此无法通过哈希值逆运算得到密码明文
+ * 只能通过MD5值的比较来判断密码是否正确
+ * 确保了密码的安全性
+ * */
 public class MD5encryption {
     public String MD5encrypt(String s)
     {
@@ -11,7 +18,7 @@ public class MD5encryption {
         {
             return "";
         }
-        MessageDigest md5=null;
+        MessageDigest md5;
         try {
             md5=MessageDigest.getInstance("MD5");
             byte[] bytes=md5.digest(s.getBytes(StandardCharsets.UTF_8));
@@ -32,11 +39,12 @@ public class MD5encryption {
         return "";
     }
 
-    public static void main(String[] args) {
+    //测试代码
+    /*public static void main(String[] args) {
         MD5encryption md5encryption=new MD5encryption();
         String s="123";
         System.out.println(s);
         String res=md5encryption.MD5encrypt(s);
         System.out.println(res);
-    }
+    }*/
 }

@@ -3,15 +3,18 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/hk/listener/Chat_listener.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/hk/listener/Item_Listener.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/hk/listener/SaveFile.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/hk/main/Start_Program.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/hk/windows/Chat.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/hk/windows/Delete.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/hk/windows/Forget.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/hk/windows/Inquire.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/hk/windows/Insert.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/hk/windows/Login.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/hk/windows/MainFrame.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/hk/windows/Registered.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/hk/windows/Save.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/hk/windows/SaveFile.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/hk/windows/SaveFile.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/hk/windows/StatementInqure.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/hk/windows/SystemDescription.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/hk/windows/Upadte.java" charset="GBK" />

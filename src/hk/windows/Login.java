@@ -2,13 +2,16 @@ package hk.windows;
 /**
  * 该类实现了登录界面，为该程序第一个调用的界面
  */
+import hk.background.BackGroundImage;
 import hk.listener.Login_BTListener;
+import hk.verify.UserAndPassword;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Objects;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Login {
     private final JFrame frame=new JFrame("登录");
@@ -19,13 +22,24 @@ public class Login {
     private final JPasswordField password=new JPasswordField(20);
     private final JButton button=new JButton(/*"登录"*/);
     private final JPanel panel=new JPanel();
+    /**
+     * 2020.11.20日，新增注册和忘记密码功能
+     */
+    private final JLabel registered=new JLabel("注册",JLabel.CENTER);
+    private final JLabel forgetpassword=new JLabel("忘记密码",JLabel.CENTER);
     public Login(){
+        new BackGroundImage(frame,frame.getContentPane(),"1.jpg");
         panel.setLayout(null);
+        //设置panel透明，显示背景图
+        panel.setBackground(null);
+        panel.setOpaque(false);
         setTitle();
         setUserT();
         setPasswordT();
         setUser();
         setPassword();
+        setRegistered();
+        setForgetpassword();
         setButton();
         setFrame();
         new Login_BTListener(user,password,button);     //给用户框，密码框添加监听，监听结果为模拟点击button
@@ -68,10 +82,32 @@ public class Login {
         password.setBounds(220,190,150,20);
         panel.add(password);
     }
+    //注册界面
+    private void setRegistered(){
+        registered.setBounds(230,220,50,30);
+        panel.add(registered);
+        registered.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                new Registered();
+            }
+        });
+    }
+    //忘记密码界面
+    private void setForgetpassword(){
+        forgetpassword.setBounds(230,260,50,30);
+        panel.add(forgetpassword);
+        forgetpassword.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                new Forget();
+            }
+        });
+    }
     //设置登录按钮，用图片替换
     private void setButton(){
         button.setFont(new Font("",Font.BOLD,20));
-        button.setBounds(230,250,90,30);
+        button.setBounds(230,300,90,30);
         button.setIcon(new ImageIcon("res/4.jpg"));
         panel.add(button);
         /**
@@ -79,6 +115,8 @@ public class Login {
          * 正确时便开启下一个主窗口，并且将该窗口关闭
          * 反之，弹出对话框提示用户账户密码输入错误
          * */
+
+        UserAndPassword verify=new UserAndPassword();
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -87,13 +125,26 @@ public class Login {
                 String userpassword=new String(password.getPassword());
                 if(e.getSource()==button)
                 {
-                    if(Objects.equals(username, "123") && Objects.equals(userpassword, "123"))
+                    /*if(Objects.equals(username, "123") && Objects.equals(userpassword, "123"))
                     {
                         Success();
                     }
                     else
                     {
                         Fail();
+                    }*/
+                    /**
+                     * 得到用户名和密码后
+                     * 将密码进行MD5加密
+                     * 根据verifyUser函数的返回值进行对应的操作*/
+                    switch (verify.verifyUserPassword(username,userpassword))
+                    {
+                        case 1:
+                            Success();break;
+                        case 2:
+                            PasswordFail();break;
+                        case 3:
+                            UserFail();break;
                     }
                 }
             }
@@ -104,7 +155,10 @@ public class Login {
         frame.dispose();
         new MainFrame();
     }
-    private void Fail(){
-        JOptionPane.showMessageDialog(frame,"登录失败","提示", JOptionPane.PLAIN_MESSAGE);
+    private void PasswordFail(){
+        JOptionPane.showMessageDialog(frame,"登录失败,\n请检查密码。","密码错误", JOptionPane.PLAIN_MESSAGE);
+    }
+    private void UserFail(){
+        JOptionPane.showMessageDialog(frame,"登录失败\n请检查用户名","用户名错误",JOptionPane.PLAIN_MESSAGE);
     }
 }

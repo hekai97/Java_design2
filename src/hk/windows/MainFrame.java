@@ -15,8 +15,9 @@ public class MainFrame {
     Item_Listener itemListener=new Item_Listener();
     private final JFrame frame=new JFrame("学生管理系统");
     private final JMenuBar jMenuBar=new JMenuBar();
-    private final JMenu filemenu=new JMenu("导出");
+    private final JMenu filemenu=new JMenu("文件");
     private final JMenuItem saveasItem=new JMenuItem("另存为");
+    private final JMenuItem exitItem=new JMenuItem("退出");
     private final JMenu Operatemenu=new JMenu("操作");
     private final JMenuItem IncreaseItem=new JMenuItem("添加");
     private final JMenuItem DeleteItem=new JMenuItem("删除");
@@ -32,7 +33,7 @@ public class MainFrame {
         setFrame();
     }
     private void setFrame(){
-        frame.setSize(1366,800);
+        frame.setSize(1000,600);
         //frame.add(panel);
         frame.setJMenuBar(jMenuBar);
         //将窗口放到最中间的位置
@@ -40,7 +41,7 @@ public class MainFrame {
         //获取Jframe的父类Container
         Container con=frame.getContentPane();
         //添加图片
-        new BackGroundImage(frame,con,"图片1.jpg");
+        new BackGroundImage(frame,con,"1.jpg");
         //禁止改变大小
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,6 +92,10 @@ public class MainFrame {
             {
                 new SystemDescription();
             }
+            if(e.getSource()==exitItem)
+            {
+                System.exit(0);
+            }
         }
     };
 
@@ -98,10 +103,11 @@ public class MainFrame {
     //设置主窗口中的文件菜单
     private void setFilemenu(){
         //setSaveasItem();
-
+        exitItem.addActionListener(actionListener);
         saveasItem.addActionListener(actionListener);
 
         filemenu.add(saveasItem);
+        filemenu.add(exitItem);
     }
     //设置主窗口中的数据库操作菜单
     private void setOperatemenu(){
@@ -135,6 +141,11 @@ public class MainFrame {
         setFilemenu();
         setOperatemenu();
         setHelpmenu();
+        /**********/
+        //设置菜单栏透明
+        jMenuBar.setBackground(null);
+        jMenuBar.setOpaque(false);
+        /**********/
         jMenuBar.add(filemenu);
         jMenuBar.add(Operatemenu);
         jMenuBar.add(helpmenu);

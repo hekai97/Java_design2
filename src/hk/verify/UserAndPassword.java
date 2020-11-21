@@ -13,6 +13,10 @@ import java.util.Objects;
 
 public class UserAndPassword {
     List<UP> list = new ArrayList<>();
+    /**
+     * 该函数从数据库中取值
+     * 然后将取到的用户名和密码放在ArrayList中
+     * */
     private void getresult()
     {
         String sql="select * from java.user_password";
@@ -33,7 +37,13 @@ public class UserAndPassword {
         }
     }
 
-    public int verifyUser(String user,String password){
+    /**
+     * 该函数的作用是用来判断传入的用户名和密码是否正确
+     * 返回值：1、代表用户名正确，密码正确
+     *       2、代表用户名正确但是密码错误
+     *       3、代表用户名不正确
+     *       */
+    public int verifyUserPassword(String user, String password){
         getresult();
         MD5encryption md5encryption=new MD5encryption();
         for (UP temp : list) {
@@ -43,10 +53,18 @@ public class UserAndPassword {
                 } else {
                     return 2;
                 }
-            } else {
-                return 3;
             }
         }
-        return 0;
+        return 3;
+    }
+    public boolean verifyUser(String User)
+    {
+        getresult();
+        for(UP temp:list){
+            if(Objects.equals(User,temp.getUser())){
+                return true;
+            }
+        }
+        return false;
     }
 }

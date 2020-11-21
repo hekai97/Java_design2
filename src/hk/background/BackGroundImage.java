@@ -6,7 +6,6 @@ public class BackGroundImage {
     public BackGroundImage(JFrame frame, Container container, String ImageName) {
         // 限定加载图片路径
         ImageIcon icon= new ImageIcon("res/" + ImageName);
-
         final JLabel labelBackground = new JLabel();
         ImageIcon iconBookManageSystemBackground = icon;
         labelBackground.setIcon(iconBookManageSystemBackground);
