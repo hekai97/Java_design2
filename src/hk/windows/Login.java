@@ -23,7 +23,7 @@ public class Login {
     private final JButton button=new JButton(/*"登录"*/);
     private final JPanel panel=new JPanel();
     /**
-     * 2020.11.20日，新增注册和忘记密码功能
+     * 2020.11.21日，新增注册和忘记密码功能
      */
     private final JLabel registered=new JLabel("注册",JLabel.CENTER);
     private final JLabel forgetpassword=new JLabel("忘记密码",JLabel.CENTER);
@@ -125,14 +125,6 @@ public class Login {
                 String userpassword=new String(password.getPassword());
                 if(e.getSource()==button)
                 {
-                    /*if(Objects.equals(username, "123") && Objects.equals(userpassword, "123"))
-                    {
-                        Success();
-                    }
-                    else
-                    {
-                        Fail();
-                    }*/
                     /**
                      * 得到用户名和密码后
                      * 将密码进行MD5加密

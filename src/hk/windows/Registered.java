@@ -7,12 +7,20 @@ import hk.verify.UserAndPassword;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Objects;
 
 public class Registered {
+    String[] list={"<-请选择密保问题->",
+                   "你出生地在哪里？",
+                   "你的小学叫什么名字？",
+                   "你定居在什么地方？"};
+    String choiceAnswer=null;
+    String QA=null;
     private final JFrame frame=new JFrame("注册");
     private final JPanel panel=new JPanel();
     private final JLabel userT=new JLabel("用户名:",JLabel.RIGHT);
@@ -20,6 +28,13 @@ public class Registered {
     private final JTextField user=new JTextField(10);
     private final JPasswordField password=new JPasswordField(10);
     private final JButton button=new JButton("确定注册");
+    /**
+     * 新增密保问题
+     */
+    private final JLabel question=new JLabel("选择密保问题:",JLabel.RIGHT);
+    private final JLabel answer=new JLabel("答案:",JLabel.RIGHT);
+    private final JComboBox<String> choice= new JComboBox<>(list);
+    private final JTextField ans=new JTextField(10);
     private String UserName=null;
     private String PassWord=null;
 
@@ -43,11 +58,19 @@ public class Registered {
         setUserT();
         setPasswordT();
         setPassword();
+        setChoice();
         setButton();
+        setQuestion();
+        setAnswer();
+        setAns();
         panel.add(userT);
         panel.add(user);
         panel.add(password);
         panel.add(passwordT);
+        panel.add(choice);
+        panel.add(question);
+        panel.add(ans);
+        panel.add(answer);
         panel.add(button);
     }
     private void setUserT(){
@@ -62,8 +85,41 @@ public class Registered {
     private void setPassword(){
         password.setBounds(200,180,100,30);
     }
+    private void setQuestion(){
+        question.setBounds(80,240,100,30);
+    }
+    private void setAnswer(){
+        answer.setBounds(80,290,100,30);
+    }
+    private void setChoice(){
+        choice.setBounds(200,240,200,30);
+        choice.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                choiceAnswer=list[choice.getSelectedIndex()];
+                /*switch (choice.getSelectedIndex())
+                {
+                    case 0:
+
+                        break;
+                    case 1:break;
+                    case 2:break;
+                    case 3:break;
+                }*/
+            }
+        });
+    }
+    private void setAns(){
+        ans.setBounds(200,290,100,30);
+        ans.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                QA=ans.getText();
+            }
+        });
+    }
     private void setButton(){
-        button.setBounds(200,300,100,30);
+        button.setBounds(200,350,100,30);
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -76,17 +132,22 @@ public class Registered {
                         JOptionPane.showMessageDialog(frame, "该用户名已经存在", "提示", JOptionPane.PLAIN_MESSAGE);
                     }else if(Objects.equals(UserName, "")){
                         JOptionPane.showMessageDialog(frame, "用户名不能为空", "提示", JOptionPane.PLAIN_MESSAGE);
-                    }
-                    else if(Objects.equals(PassWord, "")) {
+                    }else if(Objects.equals(PassWord, "")) {
                         JOptionPane.showMessageDialog(frame, "密码不能为空", "提示", JOptionPane.PLAIN_MESSAGE);
+                    }else if(Objects.equals(choiceAnswer,list[0])||choiceAnswer==null) {
+                        JOptionPane.showMessageDialog(frame,"请选择密保问题","提示",JOptionPane.PLAIN_MESSAGE);
+                    }else if(Objects.equals(QA,"")||QA==null){
+                        JOptionPane.showMessageDialog(frame,"请输入答案","提示",JOptionPane.PLAIN_MESSAGE);
                     }
                     else {
-                        String sql = "insert into java.User_Password values" + "(?,?)";
+                        String sql = "insert into java.User_Password values" + "(?,?,?,?)";
                         Connection con = DBCon.getConnection();
                         try {
                             PreparedStatement preparedStatement = con.prepareStatement(sql);
                             preparedStatement.setString(1, UserName);
                             preparedStatement.setString(2, PassWord);
+                            preparedStatement.setString(3,choiceAnswer);
+                            preparedStatement.setString(4,md5encryption.MD5encrypt(QA));
                             preparedStatement.execute();
                         } catch (SQLException g) {
                             g.printStackTrace();
@@ -99,9 +160,9 @@ public class Registered {
         });
     }
 
-/*
+
     public static void main(String[] args) {
-        Registered registered=new Registered();
+        new Registered();
     }
-    */
+
 }

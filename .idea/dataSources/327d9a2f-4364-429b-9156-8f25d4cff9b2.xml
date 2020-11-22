@@ -4502,8 +4502,18 @@ SELECT|sys.sys_config:null
     <column id="1099" parent="362" name="Password">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="1100" parent="362" name="PRIMARY">
+    <column id="1100" parent="362" name="Question">
+      <Position>3</Position>
+      <DataType>varchar(32)|0s</DataType>
+    </column>
+    <column id="1101" parent="362" name="Answer">
+      <Position>4</Position>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="1102" parent="362" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>User</ColNames>
       <Primary>1</Primary>

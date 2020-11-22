@@ -23,11 +23,11 @@ public class MainFrame {
     private final JMenuItem DeleteItem=new JMenuItem("删除");
     private final JMenuItem UpdateItem=new JMenuItem("更改");
     private final JMenuItem InquireItem=new JMenuItem("查询");
-    //private final JMenuItem StatementItem=new JMenuItem("按语句查询");
-    //private final JMenuItem conditionItem=new JMenuItem("按条件查询");
     private final JMenu helpmenu=new JMenu("帮助");
     private final JMenuItem chatItem=new JMenuItem("反馈");
     private final JMenuItem descriptionItem=new JMenuItem("说明");
+
+    /**增加修改密码和密保问题选项*/
     public MainFrame(){
         setjMenuBar();
         setFrame();
@@ -46,8 +46,6 @@ public class MainFrame {
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-
-        //setStatementItem();
 
     }
 
