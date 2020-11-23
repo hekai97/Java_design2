@@ -15,11 +15,15 @@ import java.sql.SQLException;
 import java.util.Objects;
 
 public class Registered {
+
+    //设置密保问题
     String[] list={"<-请选择密保问题->",
                    "你出生地在哪里？",
                    "你的小学叫什么名字？",
                    "你定居在什么地方？"};
+    //该字符串用来存放用户选择的密保问题
     String choiceAnswer=null;
+    //该字符串用来存放用户输入的密保问题的答案
     String QA=null;
     private final JFrame frame=new JFrame("注册");
     private final JPanel panel=new JPanel();
@@ -35,9 +39,12 @@ public class Registered {
     private final JLabel answer=new JLabel("答案:",JLabel.RIGHT);
     private final JComboBox<String> choice= new JComboBox<>(list);
     private final JTextField ans=new JTextField(10);
+    /****/
+    //存放用户注册时的用户名
     private String UserName=null;
+    //存放用户注册时的密码
     private String PassWord=null;
-
+    //new一个对象，该对象中的方法用来给密码和密保问题的答案进行MD5加密
     MD5encryption md5encryption=new MD5encryption();
 
     public Registered(){
@@ -97,15 +104,6 @@ public class Registered {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 choiceAnswer=list[choice.getSelectedIndex()];
-                /*switch (choice.getSelectedIndex())
-                {
-                    case 0:
-
-                        break;
-                    case 1:break;
-                    case 2:break;
-                    case 3:break;
-                }*/
             }
         });
     }

@@ -1,5 +1,9 @@
 package hk.model;
-
+/**该类为学生类
+ * 从数据库中得到学生的数据
+ * 或者插入学生数据时
+ * 采用此结构
+ * */
 public class Student {
     //学生学号
     private String Sno;

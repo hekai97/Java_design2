@@ -1,90 +1,11 @@
 package hk.windows;
-
-/*import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
 /**
- * 需要进行多线程聊天
- **/
-/*public class Chat extends JFrame {
-    private ObjectInputStream input;
-    private ObjectOutputStream output;
-    private JTextField enter;
-    private JTextArea display;
-
-    public Chat(String title) {
-        super(title);
-        Container con = getContentPane();
-        enter = new JTextField();
-        enter.setEnabled(false);
-        enter.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    String s = e.getActionCommand();
-                    output.writeObject(s);
-                    output.flush();
-                    displyAppend("客户端：" + s);
-                    enter.setText("");
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-        });
-        con.add(enter, BorderLayout.SOUTH);
-        display = new JTextArea();
-        con.add(new JScrollPane(display), BorderLayout.CENTER);
-        setSize(500, 500);
-        setLocationRelativeTo(null);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-    public void displyAppend(String s) {
-        display.append(s + "\n");
-        display.setCaretPosition(display.getText().length());
-        //enter.requestFocusInWindow(); //这块运行的话将会使得窗口在主窗口背后，无法显示
-    }
-
-    public boolean isEndSession(String m) {
-        if (m.equalsIgnoreCase("q"))
-            return true;
-        if (m.equalsIgnoreCase("quit"))
-            return true;
-        if (m.equalsIgnoreCase("exit"))
-            return true;
-        return false;
-    }
-
-    public void chatRun(String host, int port) {
-        try {
-            displyAppend("尝试连接");
-            Socket so = new Socket(host, port);
-            String m;
-            output = new ObjectOutputStream(so.getOutputStream());
-            input = new ObjectInputStream(so.getInputStream());
-            enter.setEnabled(true);
-            do {
-                m = (String) input.readObject();
-                displyAppend("服务器端：" + m);
-            } while (!isEndSession(m));
-            output.writeObject("q");
-            output.flush();
-            enter.setEnabled(false);
-            output.close();
-            input.close();
-            so.close();
-        } catch (Exception h) {
-            JOptionPane.showMessageDialog(this,"连接超时","提示",JOptionPane.CLOSED_OPTION);
-            this.dispose();
-        }
-    }
-}*/
-
-
+ * 用户进行反馈的类
+ * 该类也是变相的实现了一个Java聊天室的内容
+ * 在客户端进行连接，保证服务端开启
+ * 便可以进行聊天
+ * 否则提示连接失败
+ * */
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;

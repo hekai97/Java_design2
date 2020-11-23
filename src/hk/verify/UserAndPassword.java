@@ -14,7 +14,7 @@ import java.util.Objects;
 public class UserAndPassword {
     List<UP> list = new ArrayList<>();
     /**
-     * 该函数从数据库中取值
+     * 该方法从数据库中取值
      * 然后将取到的用户名和密码放在ArrayList中
      * */
     private void getresult()
@@ -57,6 +57,7 @@ public class UserAndPassword {
         }
         return 3;
     }
+    //该方法用来验证用户是否在数据库中
     public boolean verifyUser(String User)
     {
         getresult();

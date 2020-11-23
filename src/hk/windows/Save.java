@@ -1,10 +1,16 @@
 package hk.windows;
-
+/**
+ * 该类是主界面中的文件菜单里面的另存为选项
+ * 在点击该选项后
+ * 弹出此窗口
+ * 询问存放的位置并且进行存储
+ * */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.Objects;
 
 public class Save {
     private JFrame frame;
@@ -36,8 +42,12 @@ public class Save {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Filename=textField.getText();
+                if(Objects.equals(Filename, "")||Filename==null){
+                    JOptionPane.showMessageDialog(frame,"文件路径和名称不能为空","提示",JOptionPane.PLAIN_MESSAGE);
+                }else{
                 new SaveFile(new File(Filename));
                 frame.dispose();
+                }
             }
         });
     }

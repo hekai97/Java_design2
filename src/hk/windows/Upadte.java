@@ -1,5 +1,8 @@
 package hk.windows;
-
+/**
+ * 更新类
+ * 主菜单中的操作——>更改
+ * */
 import hk.listener.Update_Listener;
 import hk.sql.DBCon;
 
@@ -226,6 +229,8 @@ public class Upadte extends Inquire{
     private void setButton(){
         button=new JButton("确定");
         button.setBounds(610,100,60,30);
+        //该处为按钮的监听器定义
+        //当在界面的各个文本框上按下回车时，模拟点击一下这个按钮
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -1,13 +1,10 @@
 package hk.windows;
 
-import hk.background.BackGroundImage;
-
 import javax.swing.*;
 import java.awt.*;
 
 public class SystemDescription {
     private JFrame frame;
-    private JTextArea textArea;
     public SystemDescription(){
         setFrame();
     }
@@ -24,10 +21,5 @@ public class SystemDescription {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setResizable(false);
         frame.setVisible(true);
-    }
-    private void setTextArea(){
-        textArea=new JTextArea();
-        textArea.setSize(400,400);
-        //Î´Íê³É
     }
 }

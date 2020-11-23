@@ -51,13 +51,7 @@ public class Insert {
     }
     private void setPanel(){
         panel.setLayout(new FlowLayout());
-        setSnoLabel();
-        setSnameLabel();
-        setSexLabel();
-        setAgeLabel();
-        setIDLabel();
-        setClassNameLabel();
-        setFacultyLabel();
+        //该类中并没有对组件的位置进行设置，懒
 
         panel.add(SnoLabel);
         panel.add(SnoTextField);
@@ -76,27 +70,6 @@ public class Insert {
         panel.add(button);
 
         setButton();
-    }
-    private void setSnoLabel(){
-
-    }
-    private void setSnameLabel(){
-
-    }
-    private void setSexLabel(){
-
-    }
-    private void setAgeLabel(){
-
-    }
-    private void setIDLabel(){
-
-    }
-    private void setClassNameLabel(){
-
-    }
-    private void setFacultyLabel(){
-
     }
     private void setSnoTextField(){
         if(Objects.equals(SnoTextField.getText(), ""))

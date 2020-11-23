@@ -1,5 +1,11 @@
 package hk.windows;
-
+/**
+ * 该类对忘记密码进行操作
+ * 挡在登录界面点击了忘记密码
+ * 就进入该类
+ * 新建一个窗口
+ * 引导用户找回密码
+ * */
 import hk.sql.DBCon;
 import hk.verify.MD5encryption;
 import hk.verify.UserAndPassword;
@@ -29,9 +35,14 @@ public class Forget{
     private final JLabel answerT=new JLabel("答案:",JLabel.RIGHT);
     private final JTextField question=new JTextField(10);
     private final JTextField answer=new JTextField(10);
+    /***/
+    //得到用户名
     private String UserName=null;
+    //得到用户密码
     private String PassWord=null;
+    //得到用户之前设置的密保问题
     private String Qusetion=null;
+    //得到用户输入的答案
     private String Answer=null;
     public Forget(){
         setFrame();

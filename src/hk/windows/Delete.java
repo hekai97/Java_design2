@@ -5,7 +5,6 @@ import hk.sql.DBCon;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -69,8 +68,8 @@ public class Delete extends Inquire{
         try {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, s);
-            preparedStatement.execute();
-            JOptionPane.showMessageDialog(frame,"删除成功","提示",JOptionPane.CLOSED_OPTION);
+            if(preparedStatement.execute())
+                JOptionPane.showMessageDialog(frame,"删除成功","提示",JOptionPane.CLOSED_OPTION);
         }catch(SQLException e)
         {
             e.printStackTrace();
