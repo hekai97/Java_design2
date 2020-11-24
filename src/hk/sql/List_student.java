@@ -1,5 +1,8 @@
 package hk.sql;
-
+/**
+ * 该类的作用是返回一个学生表中数据的集合
+ * 将其存在一个ArrayList中
+ * */
 import hk.model.Student;
 
 import java.sql.Connection;

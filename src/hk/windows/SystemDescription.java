@@ -13,7 +13,7 @@ public class SystemDescription {
         frame.setLayout(new BorderLayout());
         //setTextArea();
 
-        frame.setSize(480,480);
+        frame.setSize(480,500);
         //new BackGroundImage(frame,frame.getContentPane(),"6.jpg");
         frame.add(new JLabel(new ImageIcon("res/6.jpg")));
         frame.setLocationRelativeTo(null);
