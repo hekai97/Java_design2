@@ -1,11 +1,5 @@
 package hk.windows;
-/**
- * 该类对忘记密码进行操作
- * 挡在登录界面点击了忘记密码
- * 就进入该类
- * 新建一个窗口
- * 引导用户找回密码
- * */
+
 import hk.sql.DBCon;
 import hk.verify.MD5encryption;
 import hk.verify.UserAndPassword;
@@ -20,7 +14,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
-
+/***********************************************************
+ * 版权所有 (C)2020, hekai
+ *
+ * 文件名称：Forget.java
+ * 文件标识：无
+ * 内容摘要：该类对忘记密码进行操作，在登录界面点击了忘记密码，进入该类
+ * 其它说明：无
+ * 当前版本： V1.0
+ * 作   者：贺凯
+ * 完成日期： 20201115
+ **********************************************************/
 public class Forget{
     private final JFrame frame=new JFrame("忘记密码");
     private final JPanel panel=new JPanel();
@@ -119,7 +123,7 @@ public class Forget{
     }
     private void setQuestion(){
         question.setBounds(200,240,200,30);
-        question.setEnabled(false);
+        question.setFocusable(false);
     }
     private void setAnswerT(){
         answerT.setBounds(80,290,100,30);

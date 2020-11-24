@@ -13,7 +13,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Objects;
-
+/***********************************************************
+ * 版权所有 (C)2020, hekai
+ *
+ * 文件名称：Registered.java
+ * 文件标识：无
+ * 内容摘要：该类实现了注册界面，当用户在登陆界面点击注册时，会跳转到该类中
+ * 其它说明：无
+ * 当前版本： V1.0
+ * 作   者：贺凯
+ * 完成日期： 20201115
+ **********************************************************/
 public class Registered {
 
     //设置密保问题

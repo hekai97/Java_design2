@@ -1,8 +1,4 @@
 package hk.sql;
-/**
- * 该类的作用是返回一个学生表中数据的集合
- * 将其存在一个ArrayList中
- * */
 import hk.model.Student;
 
 import java.sql.Connection;
@@ -11,7 +7,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+/***********************************************************
+ * 版权所有 (C)2020, hekai
+ *
+ * 文件名称：StudentList.java
+ * 文件标识：无
+ * 内容摘要：该类得到数据库中的学生信息，并且将其放在ArrayList中返回
+ * 其它说明：无
+ * 当前版本： V1.0
+ * 作   者：贺凯
+ * 完成日期： 20201115
+ **********************************************************/
 public class StudentList {
     public List<Student> StudentRes(){
         Connection con= DBCon.getConnection();

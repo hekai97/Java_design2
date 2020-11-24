@@ -1,16 +1,22 @@
 package hk.windows;
-/**
- **程序运行的主界面，在登录窗口退出后开启该界面
- */
 
 import hk.background.BackGroundImage;
 import hk.listener.MenuItemListener;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/***********************************************************
+ * 版权所有 (C)2020, hekai
+ *
+ * 文件名称：Login.java
+ * 文件标识：无
+ * 内容摘要：程序运行的主界面，在登录窗口退出后开启该界面
+ * 其它说明：无
+ * 当前版本： V1.0
+ * 作   者：贺凯
+ * 完成日期： 20201115
+ **********************************************************/
 public class MainFrame {
     MenuItemListener itemListener=new MenuItemListener();
     private final JFrame frame=new JFrame("学生管理系统");
@@ -109,11 +115,6 @@ public class MainFrame {
     }
     //设置主窗口中的数据库操作菜单
     private void setOperatemenu(){
-        //先将各个menuItem进行设置，然后添加到menu中
-        /*setIncreaseItem();
-        setDeleteItem();
-        setUpdateItem();
-        setInquireItem();*/
         IncreaseItem.addActionListener(actionListener);
         DeleteItem.addActionListener(actionListener);
         UpdateItem.addActionListener(actionListener);
@@ -126,8 +127,6 @@ public class MainFrame {
     }
     //设置主窗口中的帮助菜单
     private void setHelpmenu(){
-        /*setChatItem();
-        setDescriptionItem();*/
         chatItem.addActionListener(actionListener);
         descriptionItem.addActionListener(actionListener);
 

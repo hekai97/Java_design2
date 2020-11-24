@@ -1,18 +1,24 @@
 package hk.windows;
-/**
- * 用户进行反馈的类
- * 该类也是变相的实现了一个Java聊天室的内容
- * 在客户端进行连接，保证服务端开启
- * 便可以进行聊天
- * 否则提示连接失败
- * */
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.net.*;
 
 import javax.swing.*;
-
+/***********************************************************
+ * 版权所有 (C)2020, hekai
+ *
+ * 文件名称：Chat.java
+ * 文件标识：无
+ * 内容摘要：用户进行反馈的类，该类也是变相的实现了一个Java聊天室的内容
+ * 在客户端进行连接，保证服务端开启，便可以进行聊天
+ * 否则提示连接失败
+ * 其它说明：无
+ * 当前版本： V1.0
+ * 作   者：贺凯
+ * 完成日期： 20201115
+ **********************************************************/
 public class Chat {
     private final JFrame clientFrame;
     private final JLabel sayLabel;
@@ -31,7 +37,9 @@ public class Chat {
     private BufferedReader reader;
     private PrintWriter writer;
     private String nickname;
+    /**定义IP地址*/
     private final String aServerIP = "127.0.0.1";
+    /**定义端口号*/
     private final int aServerPort = 5000;
 
     // 初始化组件

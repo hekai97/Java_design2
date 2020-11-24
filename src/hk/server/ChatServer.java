@@ -1,7 +1,4 @@
 package hk.server;
-/**
- * 该类不进入主程序
- * 该类的作用是在主程序中反馈的服务端*/
 
 import java.awt.*;
 import java.awt.event.*;
@@ -10,7 +7,17 @@ import java.net.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.*;
-
+/***********************************************************
+ * 版权所有 (C)2020, hekai
+ *
+ * 文件名称：ChatServer.java
+ * 文件标识：无
+ * 内容摘要：该类不进入主程序，该类的作用是在主程序中反馈的服务端
+ * 其它说明：无
+ * 当前版本： V1.0
+ * 作   者：贺凯
+ * 完成日期： 20201115
+ **********************************************************/
 public class ChatServer {
     private final JFrame serverFrame;
     private final JLabel portLabel;

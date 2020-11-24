@@ -2,7 +2,17 @@ package hk.windows;
 
 import javax.swing.*;
 import java.awt.*;
-
+/***********************************************************
+ * 版权所有 (C)2020, hekai
+ *
+ * 文件名称：SystemDescription.java
+ * 文件标识：无
+ * 内容摘要：设置系统说明子菜单的类
+ * 其它说明：无
+ * 当前版本： V1.0
+ * 作   者：贺凯
+ * 完成日期： 20201115
+ **********************************************************/
 public class SystemDescription {
     private JFrame frame;
     public SystemDescription(){

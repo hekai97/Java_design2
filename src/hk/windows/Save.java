@@ -1,17 +1,23 @@
 package hk.windows;
-/**
- * 该类是主界面中的文件菜单里面的另存为选项
- * 在点击该选项后
- * 弹出此窗口
- * 询问存放的位置并且进行存储
- * */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Objects;
-
+/***********************************************************
+ * 版权所有 (C)2020, hekai
+ *
+ * 文件名称：Save.java
+ * 文件标识：无
+ * 内容摘要：该类是主界面中的文件菜单里面的另存为选项，在点击该选项后
+ * 弹出此窗口，询问存放的位置并且进行存储
+ * 其它说明：无
+ * 当前版本： V1.0
+ * 作   者：贺凯
+ * 完成日期： 20201115
+ **********************************************************/
 public class Save {
     private JFrame frame;
     private JLabel label;

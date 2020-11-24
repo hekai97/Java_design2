@@ -1,7 +1,5 @@
 package hk.windows;
-/**
- * 该类实现了登录界面，为该程序第一个调用的界面
- */
+
 import hk.background.BackGroundImage;
 import hk.listener.LoginButtonListener;
 import hk.verify.UserAndPassword;
@@ -12,7 +10,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+/***********************************************************
+ * 版权所有 (C)2020, hekai
+ *
+ * 文件名称：Login.java
+ * 文件标识：无
+ * 内容摘要：该类实现了登录界面，为该程序第一个调用的界面
+ * 其它说明：无
+ * 当前版本： V1.0
+ * 作   者：贺凯
+ * 完成日期： 20201115
+ **********************************************************/
 public class Login {
     private final JFrame frame=new JFrame("登录");
     private final JLabel title=new JLabel("学生管理系统",SwingConstants.CENTER);
@@ -27,6 +35,7 @@ public class Login {
      */
     private final JLabel registered=new JLabel("注册",JLabel.CENTER);
     private final JLabel forgetpassword=new JLabel("忘记密码",JLabel.CENTER);
+    /**构造方法*/
     public Login(){
         new BackGroundImage(frame,frame.getContentPane(),"1.jpg");
         panel.setLayout(null);
@@ -42,7 +51,8 @@ public class Login {
         setForgetpassword();
         setButton();
         setFrame();
-        new LoginButtonListener(user,password,button);     //给用户框，密码框添加监听，监听结果为模拟点击button
+        //给用户框，密码框添加监听，监听结果为模拟点击button
+        new LoginButtonListener(user,password,button);
     }
     private void setFrame(){
         frame.setSize(500,500);
@@ -110,11 +120,11 @@ public class Login {
         button.setBounds(230,300,90,30);
         button.setIcon(new ImageIcon("res/4.jpg"));
         panel.add(button);
-        /**
-         * 设置登录界面的登录按钮，并从文本框中接收到的用户名和密码
-         * 正确时便开启下一个主窗口，并且将该窗口关闭
-         * 反之，弹出对话框提示用户账户密码输入错误
-         * */
+        /*
+          设置登录界面的登录按钮，并从文本框中接收到的用户名和密码
+          正确时便开启下一个主窗口，并且将该窗口关闭
+          反之，弹出对话框提示用户账户密码输入错误
+          */
 
         UserAndPassword verify=new UserAndPassword();
         button.addActionListener(new ActionListener() {
@@ -125,18 +135,14 @@ public class Login {
                 String userpassword=new String(password.getPassword());
                 if(e.getSource()==button)
                 {
-                    /**
-                     * 得到用户名和密码后
-                     * 将密码进行MD5加密
-                     * 根据verifyUser函数的返回值进行对应的操作*/
-                    switch (verify.verifyUserPassword(username,userpassword))
-                    {
-                        case 1:
-                            Success();break;
-                        case 2:
-                            PasswordFail();break;
-                        case 3:
-                            UserFail();break;
+                    /*得到用户名和密码后
+                      将密码进行MD5加密
+                      根据verifyUser函数的返回值进行对应的操作
+                      */
+                    switch (verify.verifyUserPassword(username, userpassword)) {
+                        case 1 -> Success();
+                        case 2 -> PasswordFail();
+                        case 3 -> UserFail();
                     }
                 }
             }

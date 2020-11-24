@@ -9,7 +9,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Objects;
-
+/***********************************************************
+ * 版权所有 (C)2020, hekai
+ *
+ * 文件名称：Delete.java
+ * 文件标识：无
+ * 内容摘要：对数据库中的学生数据进行删除
+ * 其它说明：继承了Inquire类
+ * 当前版本： V1.0
+ * 作   者：贺凯
+ * 完成日期： 20201115
+ **********************************************************/
 public class Delete extends Inquire{
     private JPanel panel;
     private JLabel label;

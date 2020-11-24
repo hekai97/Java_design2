@@ -11,7 +11,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Objects;
-
+/***********************************************************
+ * 版权所有 (C)2020, hekai
+ *
+ * 文件名称：Insert.java
+ * 文件标识：无
+ * 内容摘要：该类的作用是插入新的学生数据
+ * 其它说明：无
+ * 当前版本： V1.0
+ * 作   者：贺凯
+ * 完成日期： 20201115
+ **********************************************************/
 public class Insert {
     private static final Connection con=DBCon.getConnection();
     private final Student student=new Student();

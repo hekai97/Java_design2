@@ -13,8 +13,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Objects;
-
-public class Upadte extends Inquire{
+/***********************************************************
+ * 版权所有 (C)2020, hekai
+ *
+ * 文件名称：Update.java
+ * 文件标识：无
+ * 内容摘要：更新类，主菜单中的操作——>更改
+ * 其它说明：无
+ * 当前版本： V1.0
+ * 作   者：贺凯
+ * 完成日期： 20201115
+ **********************************************************/
+public class Update extends Inquire{
     String sql="update java.student set ";
     private JPanel panel;
     private JLabel DeleteLabel;
@@ -37,7 +47,7 @@ public class Upadte extends Inquire{
     private JTextField ClassNameTextField;
     private JTextField FacultyTextField;
     /**构造函数**/
-    public Upadte(){
+    public Update(){
         super();
         setFrame();
 

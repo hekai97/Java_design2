@@ -1,15 +1,21 @@
 package hk.windows;
-/**
- * 查询类
- * 该类的作用是在点击主界面中的查询菜单时出现的窗口
- * 删除类，更新类都是该类的子类
- * */
+
 import hk.model.Student;
 import hk.sql.StudentList;
 
 import javax.swing.*;
 import java.util.List;
-
+/***********************************************************
+ * 版权所有 (C)2020, hekai
+ *
+ * 文件名称：Inquire.java
+ * 文件标识：无
+ * 内容摘要：该类的作用是在点击主界面中的查询菜单时出现的窗口
+ * 其它说明：删除类，更新类都是该类的子类
+ * 当前版本： V1.0
+ * 作   者：贺凯
+ * 完成日期： 20201115
+ **********************************************************/
 public class Inquire {
     private JScrollPane scrollPane;
     public JFrame frame;
