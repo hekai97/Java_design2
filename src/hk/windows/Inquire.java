@@ -5,7 +5,7 @@ package hk.windows;
  * 删除类，更新类都是该类的子类
  * */
 import hk.model.Student;
-import hk.sql.List_student;
+import hk.sql.StudentList;
 
 import javax.swing.*;
 import java.util.List;
@@ -39,7 +39,7 @@ public class Inquire {
         table=new JTable(res,s);
     }
     private void showTable(){
-        List_student listStudent=new List_student();
+        StudentList listStudent=new StudentList();
         List<Student> students=listStudent.StudentRes();
         String[] colname ={"学号","姓名","性别","年龄","身份证号码","班级","学院"};
         //将查询到的结果集转换成一个数组

@@ -1,4 +1,4 @@
-package hk.Server;
+package hk.server;
 /**
  * 该类不进入主程序
  * 该类的作用是在主程序中反馈的服务端*/
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.*;
 
-public class server {
+public class ChatServer {
     private final JFrame serverFrame;
     private final JLabel portLabel;
     private final JLabel sayLabel;
@@ -34,7 +34,7 @@ public class server {
 
 
     // 初始化组件
-    public server() {
+    public ChatServer() {
         nickname = "服务器";
 
         serverFrame = new JFrame();
@@ -99,7 +99,7 @@ public class server {
         ActionListener startListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                clientOutputStreams = new ArrayList<PrintWriter>();
+                clientOutputStreams = new ArrayList<>();
                 String aPort = portText.getText();
 
                 if (aPort.equals("")) {
@@ -228,7 +228,7 @@ public class server {
         }
     }
     public static void main(String[] args) {
-        server aServer = new server();
+        ChatServer aServer = new ChatServer();
         aServer.startUp();
     }
 }

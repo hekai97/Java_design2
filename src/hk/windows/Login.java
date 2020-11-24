@@ -3,7 +3,7 @@ package hk.windows;
  * 该类实现了登录界面，为该程序第一个调用的界面
  */
 import hk.background.BackGroundImage;
-import hk.listener.Login_BTListener;
+import hk.listener.LoginButtonListener;
 import hk.verify.UserAndPassword;
 
 import javax.swing.*;
@@ -42,7 +42,7 @@ public class Login {
         setForgetpassword();
         setButton();
         setFrame();
-        new Login_BTListener(user,password,button);     //给用户框，密码框添加监听，监听结果为模拟点击button
+        new LoginButtonListener(user,password,button);     //给用户框，密码框添加监听，监听结果为模拟点击button
     }
     private void setFrame(){
         frame.setSize(500,500);

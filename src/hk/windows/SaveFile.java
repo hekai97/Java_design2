@@ -1,7 +1,7 @@
 package hk.windows;
 
 import hk.model.Student;
-import hk.sql.List_student;
+import hk.sql.StudentList;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class SaveFile {
     public SaveFile(File file){
-        List_student listStudent=new List_student();
+        StudentList listStudent=new StudentList();
         List<Student> students=listStudent.StudentRes();
         BufferedWriter bufferedWriter;
         try{

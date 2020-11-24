@@ -4,7 +4,7 @@ package hk.windows;
  */
 
 import hk.background.BackGroundImage;
-import hk.listener.Item_Listener;
+import hk.listener.MenuItemListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainFrame {
-    Item_Listener itemListener=new Item_Listener();
+    MenuItemListener itemListener=new MenuItemListener();
     private final JFrame frame=new JFrame("学生管理系统");
     private final JMenuBar jMenuBar=new JMenuBar();
     private final JMenu filemenu=new JMenu("文件");

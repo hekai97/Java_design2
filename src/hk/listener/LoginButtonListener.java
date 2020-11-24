@@ -10,8 +10,8 @@ import java.awt.event.KeyEvent;
  * 就模拟点击一下按钮
  * 按钮点击的事件在Login.java中已经定义
  * */
-public class Login_BTListener {
-    public Login_BTListener(JTextField textField,JPasswordField passwordField,JButton button)
+public class LoginButtonListener {
+    public LoginButtonListener(JTextField textField, JPasswordField passwordField, JButton button)
     {
         textField.addKeyListener(new KeyAdapter() {
             @Override

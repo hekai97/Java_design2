@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class List_student {
+public class StudentList {
     public List<Student> StudentRes(){
         Connection con= DBCon.getConnection();
         String s= "select * from java.student";

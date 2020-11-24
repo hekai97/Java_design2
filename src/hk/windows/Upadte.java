@@ -3,7 +3,7 @@ package hk.windows;
  * 更新类
  * 主菜单中的操作——>更改
  * */
-import hk.listener.Update_Listener;
+import hk.listener.UpdateListener;
 import hk.sql.DBCon;
 
 import javax.swing.*;
@@ -257,7 +257,7 @@ public class Upadte extends Inquire{
         }
     }
     private void AddListener(){
-        Update_Listener listener=new Update_Listener();
+        UpdateListener listener=new UpdateListener();
         listener.setButton(button);
         SnoTextField.addActionListener(listener);
         SnameTextField.addActionListener(listener);

@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Update_Listener implements ActionListener {
+public class UpdateListener implements ActionListener {
     JButton button;
 
     public void setButton(JButton button) {

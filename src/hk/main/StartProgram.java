@@ -12,7 +12,7 @@ package hk.main;
  **********************************************************/
 import hk.windows.Login;
 
-public class Start_Program {
+public class StartProgram {
     public static void main(String[] args) {
         new Login();
     }
