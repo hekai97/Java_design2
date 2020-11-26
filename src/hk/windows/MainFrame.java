@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 /***********************************************************
  * 版权所有 (C)2020, hekai
  *
- * 文件名称：Login.java
+ * 文件名称：MainFrame.java
  * 文件标识：无
  * 内容摘要：程序运行的主界面，在登录窗口退出后开启该界面
  * 其它说明：无
@@ -138,19 +138,19 @@ public class MainFrame {
         setFilemenu();
         setOperatemenu();
         setHelpmenu();
-        /**********/
+        /*********/
         //设置菜单栏透明
         jMenuBar.setBackground(null);
         jMenuBar.setOpaque(false);
-        /**********/
+        /*********/
         jMenuBar.add(filemenu);
         jMenuBar.add(Operatemenu);
         jMenuBar.add(helpmenu);
     }
 
-    /**
-     * 以下代码是第一次所写
-     * 在定义了ActionListener变量后下述方法便显得冗余
+    /*
+      以下代码是第一次所写
+      在定义了ActionListener变量后下述方法便显得冗余
      */
     //以下都是对菜单中的子项进行设置并且添加监听器
     /*private void setIncreaseItem(){

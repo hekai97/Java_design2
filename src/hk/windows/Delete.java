@@ -25,7 +25,6 @@ public class Delete extends Inquire{
     private JLabel label;
     private JTextField textField;
     private JButton button1;
-    private JButton button2;
     private String s;
     public Delete(){
         super();
@@ -66,7 +65,7 @@ public class Delete extends Inquire{
                     if(!Objects.equals(s, "")) {
                         delete();
                     }else{
-                        JOptionPane.showMessageDialog(frame,"请输入","提示",JOptionPane.CLOSED_OPTION);
+                        JOptionPane.showMessageDialog(frame,"请输入","提示", JOptionPane.PLAIN_MESSAGE);
                     }
                 }
             }
@@ -79,7 +78,7 @@ public class Delete extends Inquire{
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, s);
             if(preparedStatement.execute())
-                JOptionPane.showMessageDialog(frame,"删除成功","提示",JOptionPane.CLOSED_OPTION);
+                JOptionPane.showMessageDialog(frame,"删除成功","提示", JOptionPane.PLAIN_MESSAGE);
         }catch(SQLException e)
         {
             e.printStackTrace();
