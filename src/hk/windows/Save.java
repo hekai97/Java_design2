@@ -51,6 +51,7 @@ public class Save {
                 if(Objects.equals(Filename, "")||Filename==null){
                     JOptionPane.showMessageDialog(frame,"文件路径和名称不能为空","提示",JOptionPane.PLAIN_MESSAGE);
                 }else{
+                    JOptionPane.showMessageDialog(frame,"保存成功","提示",JOptionPane.PLAIN_MESSAGE);
                 new SaveFile(new File(Filename));
                 frame.dispose();
                 }

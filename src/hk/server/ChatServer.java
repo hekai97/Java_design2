@@ -25,7 +25,7 @@ public class ChatServer {
     private final JLabel nicknameLabel;
     private final JTextField portText;
     private final JTextField sayText;
-    private final JTextField nicknameText;
+    private final JTextField nameText;
     private final JButton startButton;
     private final JButton sayButton;
     private final JButton nicknameButton;
@@ -36,13 +36,13 @@ public class ChatServer {
     private final JScrollPane scroller;
     private final JTextArea serverTextArea;
     private ArrayList<PrintWriter> clientOutputStreams;
-    private String nickname;
+    private String name;
 
 
 
     // 初始化组件
     public ChatServer() {
-        nickname = "服务器";
+        name = "服务器";
 
         serverFrame = new JFrame();
         jPanelNorth = new JPanel();
@@ -52,7 +52,7 @@ public class ChatServer {
         serverTextArea = new JTextArea();
         scroller = new JScrollPane(serverTextArea);
         nicknameLabel = new JLabel("昵称", JLabel.LEFT);
-        nicknameText = new JTextField(nickname, 30);
+        nameText = new JTextField(name, 30);
         nicknameButton = new JButton("确认");
         jPanelSouth0 = new JPanel();
         jPanelSouth1 = new JPanel();
@@ -84,7 +84,7 @@ public class ChatServer {
 
         // 南区的组件
         jPanelSouth1.add(nicknameLabel);
-        jPanelSouth1.add(nicknameText);
+        jPanelSouth1.add(nameText);
         jPanelSouth1.add(nicknameButton);
         jPanelSouth2.add(sayLabel);
         jPanelSouth2.add(sayText);
@@ -151,24 +151,24 @@ public class ChatServer {
         ActionListener nicknameListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String aText = nicknameText.getText();
+                String aText = nameText.getText();
                 if (!aText.equals("")) {
-                    nickname = aText;
+                    name = aText;
                 }
             }
         };
         nicknameButton.addActionListener(nicknameListener);
-        nicknameText.addActionListener(nicknameListener);
-        nicknameText.addFocusListener(new FocusListener() {
+        nameText.addActionListener(nicknameListener);
+        nameText.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                String aText = nicknameText.getText();
+                String aText = nameText.getText();
                 if (!aText.equals("")) {
-                    nickname = aText;
+                    name = aText;
                 }
             }
         });
@@ -179,7 +179,7 @@ public class ChatServer {
             public void actionPerformed(ActionEvent e) {
                 String aText = sayText.getText();
                 if (!aText.equals("")) {
-                    aText = nickname + "：" + aText;
+                    aText = name + "：" + aText;
                     sendToEveryClient(aText);
                     serverTextArea.append(aText + "\n");
                     sayText.setText("");

@@ -1,8 +1,5 @@
 package hk.windows;
-/**
- * 更新类
- * 主菜单中的操作——>更改
- * */
+
 import hk.listener.UpdateListener;
 import hk.sql.DBCon;
 

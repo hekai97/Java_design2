@@ -21,8 +21,8 @@ import java.util.List;
  **********************************************************/
 public class SaveFile {
     public SaveFile(File file){
-        StudentList listStudent=new StudentList();
-        List<Student> students=listStudent.StudentRes();
+        StudentList studentList=new StudentList();
+        List<Student> students=studentList.StudentRes();
         BufferedWriter bufferedWriter;
         try{
             bufferedWriter=new BufferedWriter(new FileWriter(file));
